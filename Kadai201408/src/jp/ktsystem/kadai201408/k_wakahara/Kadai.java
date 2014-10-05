@@ -81,8 +81,8 @@ public class Kadai {
 	public static BufferedReader openTextFileR(FileInputStream inputStream,
 			String charSet) throws Exception {
 
-		return new BufferedReader(new InputStreamReader(skipUTF8BOM(inputStream,
-				charSet), charSet));
+		return new BufferedReader(new InputStreamReader(skipUTF8BOM(
+				inputStream, charSet), charSet));
 	}
 
 	/**
