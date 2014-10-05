@@ -92,18 +92,23 @@ public class Kadai {
 			throws Exception {
 		if (!charSet.toUpperCase().equals("UTF-8"))
 			return is;
+
+		// マーク機能が無い場合BufferedInputStreamを被せる
 		if (!is.markSupported()) {
-			// マーク機能が無い場合BufferedInputStreamを被せる
 			is = new BufferedInputStream(is);
 		}
-		is.mark(3); // 先頭にマークを付ける
+		
+		// 先頭にマークを付ける
+		is.mark(3);
+
+		// BOMの3ﾊﾞｲﾄ分のチェック
 		if (is.available() >= 3) {
 			byte b[] = { 0, 0, 0 };
 			is.read(b, 0, 3);
+			// BOMでない場合は先頭まで巻き戻す
 			if (b[0] != (byte) 0xEF || b[1] != (byte) 0xBB
 					|| b[2] != (byte) 0xBF) {
 				is.reset();
-				// BOMでない場合は先頭まで巻き戻す
 			}
 		}
 		return is;
