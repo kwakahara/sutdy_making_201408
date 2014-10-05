@@ -48,16 +48,14 @@ public class Kadai {
 
 		String line = "";
 
-		try {
-			FileInputStream input = new FileInputStream(fileName);
-			BufferedReader fileLine = openTextFileR(input, "UTF-8");
-
+		try (FileInputStream input = new FileInputStream(fileName);
+				BufferedReader fileLine = openTextFileR(input, "UTF-8");)
+				{
+			
 			line = fileLine.readLine();
 			if (line == null) {
 				line = "";
 			}
-
-			fileLine.close();
 
 			return line;
 
