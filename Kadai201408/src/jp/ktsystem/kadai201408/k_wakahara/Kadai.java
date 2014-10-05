@@ -25,6 +25,9 @@ public class Kadai {
 	 * @return
 	 * @throws KadaiException
 	 */
+
+	private static final String ENCODE = "UTF-8";
+
 	public static long calcScoreSum(String anInputPath) throws KadaiException {
 
 		String str = readFile(anInputPath);
@@ -50,7 +53,7 @@ public class Kadai {
 
 		try {
 			FileInputStream input = new FileInputStream(fileName);
-			BufferedReader fileLine = openTextFileR(input, "UTF-8");
+			BufferedReader fileLine = openTextFileR(input, ENCODE);
 
 			line = fileLine.readLine();
 			if (line == null) {
@@ -90,7 +93,7 @@ public class Kadai {
 	 */
 	public static InputStream skipUTF8BOM(InputStream is, String charSet)
 			throws Exception {
-		if (!charSet.toUpperCase().equals("UTF-8"))
+		if (!charSet.toUpperCase().equals(ENCODE))
 			return is;
 		if (!is.markSupported()) {
 			// マーク機能が無い場合BufferedInputStreamを被せる
