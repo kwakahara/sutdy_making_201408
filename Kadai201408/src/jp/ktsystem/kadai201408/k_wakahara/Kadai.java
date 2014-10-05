@@ -88,25 +88,25 @@ public class Kadai {
 	/**
 	 * UTF-8のBOMをスキップする
 	 */
-	public static InputStream skipUTF8BOM(InputStream is, String charSet)
+	public static InputStream skipUTF8BOM(InputStream inputStream, String charSet)
 			throws Exception {
-		if (!charSet.toUpperCase().equals("UTF-8"))
-			return is;
-		if (!is.markSupported()) {
+		if (!"UTF-8".equals(charSet.toUpperCase()))
+			return inputStream;
+		if (!inputStream.markSupported()) {
 			// マーク機能が無い場合BufferedInputStreamを被せる
-			is = new BufferedInputStream(is);
+			inputStream = new BufferedInputStream(inputStream);
 		}
-		is.mark(3); // 先頭にマークを付ける
-		if (is.available() >= 3) {
+		inputStream.mark(3); // 先頭にマークを付ける
+		if (inputStream.available() >= 3) {
 			byte b[] = { 0, 0, 0 };
-			is.read(b, 0, 3);
+			inputStream.read(b, 0, 3);
 			if (b[0] != (byte) 0xEF || b[1] != (byte) 0xBB
 					|| b[2] != (byte) 0xBF) {
-				is.reset();
+				inputStream.reset();
 				// BOMでない場合は先頭まで巻き戻す
 			}
 		}
-		return is;
+		return inputStream;
 	}
 
 	/**
