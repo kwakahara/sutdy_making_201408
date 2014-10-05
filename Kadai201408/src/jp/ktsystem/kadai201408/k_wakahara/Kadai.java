@@ -31,9 +31,9 @@ public class Kadai {
 
 		str = str.toUpperCase();
 
-		int[] numlist = changeNumber(str);
+		int[] aNumList = changeNumber(str);
 
-		return addition(numlist);
+		return addition(aNumList);
 
 	}
 
@@ -78,10 +78,10 @@ public class Kadai {
 	 * @return
 	 * @throws Exception
 	 */
-	public static BufferedReader openTextFileR(FileInputStream fis,
+	public static BufferedReader openTextFileR(FileInputStream inputStream,
 			String charSet) throws Exception {
 
-		return new BufferedReader(new InputStreamReader(skipUTF8BOM(fis,
+		return new BufferedReader(new InputStreamReader(skipUTF8BOM(inputStream,
 				charSet), charSet));
 	}
 
