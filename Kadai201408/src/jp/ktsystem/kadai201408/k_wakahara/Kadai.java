@@ -31,7 +31,7 @@ public class Kadai {
 
 		str = str.toUpperCase();
 
-		int[] numlist = changeNumber(str);
+		long[] numlist = changeNumber(str);
 
 		return addition(numlist);
 
@@ -116,7 +116,7 @@ public class Kadai {
 	 *            : 各ファイルの文字列を数値に変換した配列
 	 * @return sum : 合計値
 	 */
-	public static long addition(int[] numBox) {
+	public static long addition(long[] numBox) {
 
 		long sum = 0;
 
@@ -135,12 +135,12 @@ public class Kadai {
 	 * @return numBox : 数値に変換した配列を返す
 	 * @throws KadaiException
 	 */
-	public static int[] changeNumber(String str) throws KadaiException {
+	public static long[] changeNumber(String str) throws KadaiException {
 
 		// カンマで区切って配列に格納
 		String[] alphabetArray = str.split(",", -1);
 		// カンマで区切られた各ブロックのスコアを配列の要素に格納
-		int[] numBox = new int[alphabetArray.length];
+		long[] numBox = new long[alphabetArray.length];
 
 		// 文字を数値に直してスコア計算
 		for (int i = 0; i < alphabetArray.length; i++) {
