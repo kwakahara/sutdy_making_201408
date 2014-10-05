@@ -18,7 +18,7 @@ import org.junit.runners.JUnit4;
 public class KadaiTest201408_Lv1 {
 
 	// ファイルパス(環境に合わせて定義してください)
-	private static final String FILE_DIRECTORY = "C:\\Lv1\\";
+	private static final String FILE_DIRECTORY = "..\\Kadai201408\\testfiles\\";
 
 	@Test
 	public void testCase001() {
