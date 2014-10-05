@@ -44,7 +44,7 @@ public class Kadai {
 	 * @return
 	 * @throws KadaiException
 	 */
-	public static String readFile(String fileName) throws KadaiException {
+	private static String readFile(String fileName) throws KadaiException {
 
 		String line = "";
 
@@ -78,7 +78,7 @@ public class Kadai {
 	 * @return
 	 * @throws Exception
 	 */
-	public static BufferedReader openTextFileR(FileInputStream fis,
+	private static BufferedReader openTextFileR(FileInputStream fis,
 			String charSet) throws Exception {
 
 		return new BufferedReader(new InputStreamReader(skipUTF8BOM(fis,
@@ -88,7 +88,7 @@ public class Kadai {
 	/**
 	 * UTF-8のBOMをスキップする
 	 */
-	public static InputStream skipUTF8BOM(InputStream is, String charSet)
+	private static InputStream skipUTF8BOM(InputStream is, String charSet)
 			throws Exception {
 		if (!charSet.toUpperCase().equals("UTF-8"))
 			return is;
@@ -116,7 +116,7 @@ public class Kadai {
 	 *            : 各ファイルの文字列を数値に変換した配列
 	 * @return sum : 合計値
 	 */
-	public static long addition(int[] numBox) {
+	private static long addition(int[] numBox) {
 
 		long sum = 0;
 
@@ -135,7 +135,7 @@ public class Kadai {
 	 * @return numBox : 数値に変換した配列を返す
 	 * @throws KadaiException
 	 */
-	public static int[] changeNumber(String str) throws KadaiException {
+	private static int[] changeNumber(String str) throws KadaiException {
 
 		// カンマで区切って配列に格納
 		String[] alphabetArray = str.split(",", -1);
