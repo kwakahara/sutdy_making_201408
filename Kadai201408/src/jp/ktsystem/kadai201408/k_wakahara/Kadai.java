@@ -53,7 +53,7 @@ public class Kadai {
 			BufferedReader fileLine = openTextFileR(input, "UTF-8");
 
 			line = fileLine.readLine();
-			if (line == null) {
+			if (null == line) {
 				line = "";
 			}
 
