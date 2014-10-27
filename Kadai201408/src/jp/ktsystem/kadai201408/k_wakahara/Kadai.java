@@ -12,22 +12,23 @@ import jp.ktsystem.kadai201408.common.KadaiException;
 import jp.ktsystem.kadai201408.common.ErrorCode;
 
 /**
- * “Á’è‚Ì‘®‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İAƒ‹[ƒ‹‚É‰ˆ‚Á‚½”’l‚ğ•Ô‚·ƒNƒ‰ƒX
+ * ç‰¹å®šã®æ›¸å¼ã®ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€ãƒ«ãƒ¼ãƒ«ã«æ²¿ã£ãŸæ•°å€¤ã‚’è¿”ã™ã‚¯ãƒ©ã‚¹
  * 
  * @author wakahara
  */
 public class Kadai {
-
 	/**
-	 * ‰Û‘è‚Ìd—l’Ê‚è‚ÌƒNƒ‰ƒX‚Å‚·B
+	 * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æ–‡å­—
+	 */
+	private static final String ENCODE = "UTF-8";
+	
+	/**
+	 * èª²é¡Œã®ä»•æ§˜é€šã‚Šã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
 	 * 
 	 * @param anInputPath
 	 * @return
 	 * @throws KadaiException
 	 */
-
-	private static final String ENCODE = "UTF-8";
-
 	public static long calcScoreSum(String anInputPath) throws KadaiException {
 
 		String str = readFile(anInputPath);
@@ -41,7 +42,7 @@ public class Kadai {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İƒƒ\ƒbƒh
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ãƒ¡ã‚½ãƒƒãƒ‰
 	 * 
 	 * @param fileName
 	 * @return
@@ -74,7 +75,7 @@ public class Kadai {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹“Ç‚İ‚İ‚ÌƒXƒgƒŠ[ƒ€¶¬
+	 * ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ç”Ÿæˆ
 	 * 
 	 * @param fis
 	 * @param charSet
@@ -89,35 +90,35 @@ public class Kadai {
 	}
 
 	/**
-	 * UTF-8‚ÌBOM‚ğƒXƒLƒbƒv‚·‚é
+	 * UTF-8ã®BOMã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
 	 */
 	public static InputStream skipUTF8BOM(InputStream is, String charSet)
 			throws Exception {
 		if (!charSet.toUpperCase().equals(ENCODE))
 			return is;
 		if (!is.markSupported()) {
-			// ƒ}[ƒN‹@”\‚ª–³‚¢ê‡BufferedInputStream‚ğ”í‚¹‚é
+			// ãƒãƒ¼ã‚¯æ©Ÿèƒ½ãŒç„¡ã„å ´åˆBufferedInputStreamã‚’è¢«ã›ã‚‹
 			is = new BufferedInputStream(is);
 		}
-		is.mark(3); // æ“ª‚Éƒ}[ƒN‚ğ•t‚¯‚é
+		is.mark(3); // å…ˆé ­ã«ãƒãƒ¼ã‚¯ã‚’ä»˜ã‘ã‚‹
 		if (is.available() >= 3) {
 			byte b[] = { 0, 0, 0 };
 			is.read(b, 0, 3);
 			if (b[0] != (byte) 0xEF || b[1] != (byte) 0xBB
 					|| b[2] != (byte) 0xBF) {
 				is.reset();
-				// BOM‚Å‚È‚¢ê‡‚Íæ“ª‚Ü‚ÅŠª‚«–ß‚·
+				// BOMã§ãªã„å ´åˆã¯å…ˆé ­ã¾ã§å·»ãæˆ»ã™
 			}
 		}
 		return is;
 	}
 
 	/**
-	 * ”z—ñ‚Ì‘«‚µZ‚ğs‚¤ƒƒ\ƒbƒh
+	 * é…åˆ—ã®è¶³ã—ç®—ã‚’è¡Œã†ãƒ¡ã‚½ãƒƒãƒ‰
 	 * 
 	 * @param numBox
-	 *            : Šeƒtƒ@ƒCƒ‹‚Ì•¶š—ñ‚ğ”’l‚É•ÏŠ·‚µ‚½”z—ñ
-	 * @return sum : ‡Œv’l
+	 *            : å„ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—åˆ—ã‚’æ•°å€¤ã«å¤‰æ›ã—ãŸé…åˆ—
+	 * @return sum : åˆè¨ˆå€¤
 	 */
 	public static long addition(int[] numBox) {
 
@@ -131,21 +132,21 @@ public class Kadai {
 	}
 
 	/**
-	 * “Ç‚İ‚±‚ñ‚¾CSVƒtƒ@ƒCƒ‹‚ğ”’l‚É•ÏŠ·‚·‚éƒƒ\ƒbƒh
+	 * èª­ã¿ã“ã‚“ã CSVãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ•°å€¤ã«å¤‰æ›ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
 	 * 
 	 * @param str
-	 *            @F@ƒtƒ@ƒCƒ‹‚Ì“à—e
-	 * @return numBox : ”’l‚É•ÏŠ·‚µ‚½”z—ñ‚ğ•Ô‚·
+	 *            ã€€ï¼šã€€ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹
+	 * @return numBox : æ•°å€¤ã«å¤‰æ›ã—ãŸé…åˆ—ã‚’è¿”ã™
 	 * @throws KadaiException
 	 */
 	public static int[] changeNumber(String str) throws KadaiException {
 
-		// ƒJƒ“ƒ}‚Å‹æØ‚Á‚Ä”z—ñ‚ÉŠi”[
+		// ã‚«ãƒ³ãƒã§åŒºåˆ‡ã£ã¦é…åˆ—ã«æ ¼ç´
 		String[] alphabetArray = str.split(",", -1);
-		// ƒJƒ“ƒ}‚Å‹æØ‚ç‚ê‚½ŠeƒuƒƒbƒN‚ÌƒXƒRƒA‚ğ”z—ñ‚Ì—v‘f‚ÉŠi”[
+		// ã‚«ãƒ³ãƒã§åŒºåˆ‡ã‚‰ã‚ŒãŸå„ãƒ–ãƒ­ãƒƒã‚¯ã®ã‚¹ã‚³ã‚¢ã‚’é…åˆ—ã®è¦ç´ ã«æ ¼ç´
 		int[] numBox = new int[alphabetArray.length];
 
-		// •¶š‚ğ”’l‚É’¼‚µ‚ÄƒXƒRƒAŒvZ
+		// æ–‡å­—ã‚’æ•°å€¤ã«ç›´ã—ã¦ã‚¹ã‚³ã‚¢è¨ˆç®—
 		for (int i = 0; i < alphabetArray.length; i++) {
 			for (int j = 0; j < alphabetArray[i].length(); j++) {
 
