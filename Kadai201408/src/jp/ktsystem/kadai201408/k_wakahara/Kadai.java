@@ -40,15 +40,15 @@ public class Kadai {
 	/**
 	 * ファイルの読み込みメソッド
 	 * 
-	 * @param fileName
+	 * @param aFileName
 	 * @return
 	 * @throws KadaiException
 	 */
-	public static String readFile(String fileName) throws KadaiException {
+	public static String readFile(String aFileName) throws KadaiException {
 
 		String line = "";
 
-		try (FileInputStream input = new FileInputStream(fileName);
+		try (FileInputStream input = new FileInputStream(aFileName);
 				BufferedReader fileLine = openTextFileR(input, "UTF-8");) {
 
 			line = fileLine.readLine();
@@ -70,55 +70,55 @@ public class Kadai {
 	/**
 	 * ファイル読み込みのストリーム生成
 	 * 
-	 * @param fis
-	 * @param charSet
+	 * @param aFileInputStr
+	 * @param aCharSet
 	 * @return
 	 * @throws Exception
 	 */
-	public static BufferedReader openTextFileR(FileInputStream fis,
+	public static BufferedReader openTextFileR(FileInputStream aFileInputStr,
 			String charSet) throws Exception {
 
-		return new BufferedReader(new InputStreamReader(skipUTF8BOM(fis,
+		return new BufferedReader(new InputStreamReader(skipUTF8BOM(aFileInputStr,
 				charSet), charSet));
 	}
 
 	/**
 	 * UTF-8のBOMをスキップする
 	 */
-	public static InputStream skipUTF8BOM(InputStream is, String charSet)
+	public static InputStream skipUTF8BOM(InputStream anInputStream, String aCharSet)
 			throws Exception {
-		if (!charSet.toUpperCase().equals("UTF-8"))
-			return is;
-		if (!is.markSupported()) {
+		if (!aCharSet.toUpperCase().equals("UTF-8"))
+			return anInputStream;
+		if (!anInputStream.markSupported()) {
 			// マーク機能が無い場合BufferedInputStreamを被せる
-			is = new BufferedInputStream(is);
+			anInputStream = new BufferedInputStream(anInputStream);
 		}
-		is.mark(3); // 先頭にマークを付ける
-		if (is.available() >= 3) {
+		anInputStream.mark(3); // 先頭にマークを付ける
+		if (anInputStream.available() >= 3) {
 			byte b[] = { 0, 0, 0 };
-			is.read(b, 0, 3);
+			anInputStream.read(b, 0, 3);
 			if (b[0] != (byte) 0xEF || b[1] != (byte) 0xBB
 					|| b[2] != (byte) 0xBF) {
-				is.reset();
+				anInputStream.reset();
 				// BOMでない場合は先頭まで巻き戻す
 			}
 		}
-		return is;
+		return anInputStream;
 	}
 
 	/**
 	 * 配列の足し算を行うメソッド
 	 * 
-	 * @param numBox
+	 * @param aNumBox
 	 *            : 各ファイルの文字列を数値に変換した配列
 	 * @return sum : 合計値
 	 */
-	public static long addition(int[] numBox) {
+	public static long addition(int[] aNumBox) {
 
 		long sum = 0;
 
-		for (int i = 1; i <= numBox.length; i++) {
-			sum += numBox[i - 1] * i;
+		for (int i = 1; i <= aNumBox.length; i++) {
+			sum += aNumBox[i - 1] * i;
 		}
 
 		return sum;
