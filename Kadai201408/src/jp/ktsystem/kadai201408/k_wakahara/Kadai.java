@@ -46,12 +46,11 @@ public class Kadai {
 	 */
 	public static String readFile(String aFileName) throws KadaiException {
 
-		String line = "";
-
+		
 		try (FileInputStream input = new FileInputStream(aFileName);
 				BufferedReader fileLine = openTextFileR(input, "UTF-8");) {
 
-			line = fileLine.readLine();
+			String line = fileLine.readLine();
 			if (line == null) {
 				line = "";
 			}
