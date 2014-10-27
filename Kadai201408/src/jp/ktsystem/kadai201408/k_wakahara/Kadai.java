@@ -17,7 +17,7 @@ import jp.ktsystem.kadai201408.common.ErrorCode;
  * @author wakahara
  */
 public class Kadai {
-
+  
 	/**
 	 * 課題の仕様通りのクラスです。
 	 * 
