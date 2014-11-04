@@ -1,6 +1,6 @@
 package jp.ktsystem.kadai201408.k_wakahara;
 
-import java.io.BufferedInputStream;
+import java.io.BufferedInputStream; 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
