@@ -76,10 +76,10 @@ public class Kadai {
 	 * @throws Exception
 	 */
 	public static BufferedReader openTextFileR(FileInputStream aFileInputStr,
-			String charSet) throws Exception {
+			String aCharSet) throws Exception {
 
 		return new BufferedReader(new InputStreamReader(skipUTF8BOM(aFileInputStr,
-				charSet), charSet));
+				aCharSet), aCharSet));
 	}
 
 	/**
@@ -127,15 +127,15 @@ public class Kadai {
 	/**
 	 * 読みこんだCSVファイルを数値に変換するメソッド
 	 * 
-	 * @param str
+	 * @param aNumArray
 	 *            　：　ファイルの内容
 	 * @return numBox : 数値に変換した配列を返す
 	 * @throws KadaiException
 	 */
-	public static int[] changeNumber(String str) throws KadaiException {
+	public static int[] changeNumber(String aNumArray) throws KadaiException {
 
 		// カンマで区切って配列に格納
-		String[] alphabetArray = str.split(",", -1);
+		String[] alphabetArray = aNumArray.split(",", -1);
 		// カンマで区切られた各ブロックのスコアを配列の要素に格納
 		int[] numBox = new int[alphabetArray.length];
 
