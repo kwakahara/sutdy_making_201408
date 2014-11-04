@@ -90,8 +90,9 @@ public class Kadai {
 	 */
 	public static InputStream skipUTF8BOM(InputStream is, String charSet)
 			throws Exception {
-		if (!charSet.toUpperCase().equals("UTF-8"))
+		if (!charSet.toUpperCase().equals("UTF-8")){
 			return is;
+		}
 		if (!is.markSupported()) {
 			// マーク機能が無い場合BufferedInputStreamを被せる
 			is = new BufferedInputStream(is);
