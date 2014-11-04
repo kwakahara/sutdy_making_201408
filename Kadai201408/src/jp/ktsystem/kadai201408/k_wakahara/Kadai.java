@@ -12,17 +12,20 @@ import jp.ktsystem.kadai201408.common.KadaiException;
 import jp.ktsystem.kadai201408.common.ErrorCode;
 
 /**
- * 特定の書式のテキストファイルを読み込み、ルールに沿った数値を返すクラス
+ * パッケージ：jp.ktsystem.kadai201408.k_wakahara
+ * 継承クラス：無し
+ * インターフェース：無し
+ * 直系の既知サブクラス：無し
  * 
  * @author wakahara
  */
 public class Kadai {
 
 	/**
-	 * 課題の仕様通りのクラスです。
+	 * 特定の書式のテキストファイルを読み込み、ルールに沿った数値を返すクラス
 	 * 
-	 * @param anInputPath
-	 * @return
+	 * @param anInputPath：ファイルパス
+	 * @return　合計値
 	 * @throws KadaiException
 	 */
 	public static long calcScoreSum(String anInputPath) throws KadaiException {
@@ -40,8 +43,8 @@ public class Kadai {
 	/**
 	 * ファイルの読み込みメソッド
 	 * 
-	 * @param fileName
-	 * @return
+	 * @param fileName：ファイルの名前
+	 * @return 読み込んだファイルの1行目
 	 * @throws KadaiException
 	 */
 	public static String readFile(String fileName) throws KadaiException {
@@ -73,9 +76,9 @@ public class Kadai {
 	/**
 	 * ファイル読み込みのストリーム生成
 	 * 
-	 * @param fis
-	 * @param charSet
-	 * @return
+	 * @param fis　ファイルストリーム
+	 * @param charSet　読み取り行
+	 * @return　BufferedReader
 	 * @throws Exception
 	 */
 	public static BufferedReader openTextFileR(FileInputStream fis,
