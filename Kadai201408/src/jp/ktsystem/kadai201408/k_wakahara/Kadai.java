@@ -17,7 +17,7 @@ import jp.ktsystem.kadai201408.common.ErrorCode;
  * @author wakahara
  */
 public class Kadai {
-  
+
 	/**
 	 * 課題の仕様通りのクラスです。
 	 * 
@@ -131,7 +131,7 @@ public class Kadai {
 	 * 読みこんだCSVファイルを数値に変換するメソッド
 	 * 
 	 * @param str
-	 *            　：　ファイルの内容
+	 *            　：　ファイルの内容  
 	 * @return numBox : 数値に変換した配列を返す
 	 * @throws KadaiException
 	 */
