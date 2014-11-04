@@ -100,8 +100,8 @@ public class Kadai {
 		if (inputStream.available() >= 3) {
 			byte b[] = { 0, 0, 0 };
 			inputStream.read(b, 0, 3);
-			if (b[0] != (byte) 0xEF || b[1] != (byte) 0xBB
-					|| b[2] != (byte) 0xBF) {
+			if ((byte) 0xEF != b[0] || (byte) 0xBB != b[1]
+					|| (byte) 0xBF != b[2]) {
 				inputStream.reset();
 				// BOM‚Å‚È‚¢ê‡‚Íæ“ª‚Ü‚ÅŠª‚«–ß‚·
 			}
