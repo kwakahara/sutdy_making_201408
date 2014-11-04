@@ -14,7 +14,7 @@ import jp.ktsystem.kadai201408.common.ErrorCode;
 /**
  * 特定の書式のテキストファイルを読み込み、ルールに沿った数値を返すクラス
  * 
- * @author wakahara
+ * @author k_wakahara
  */
 public class Kadai {
 
