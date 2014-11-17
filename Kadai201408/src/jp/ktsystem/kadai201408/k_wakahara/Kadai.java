@@ -16,13 +16,13 @@ import jp.ktsystem.kadai201408.common.ErrorCode;
  * 継承クラス：無し
  * インターフェース：無し
  * 直系の既知サブクラス：無し
- * 
- * @author wakahara
+ * 課題の仕様を満たすクラス
+ * @author k_wakahara
  */
 public class Kadai {
 
 	/**
-	 * 特定の書式のテキストファイルを読み込み、ルールに沿った数値を返すクラス
+	 * 特定の書式のテキストファイルを読み込み、ルールに沿った数値を返すメソッド
 	 * 
 	 * @param anInputPath：ファイルパス
 	 * @return　合計値
@@ -74,10 +74,10 @@ public class Kadai {
 	}
 
 	/**
-	 * ファイル読み込みのストリーム生成
+	 * ファイル読み込みのストリーム生成するメソッド
 	 * 
-	 * @param fis　ファイルストリーム
-	 * @param charSet　読み取り行
+	 * @param fis：ファイルストリーム
+	 * @param charSet：エンコード
 	 * @return　BufferedReader
 	 * @throws Exception
 	 */
@@ -89,7 +89,12 @@ public class Kadai {
 	}
 
 	/**
-	 * UTF-8のBOMをスキップする
+	 * UTF-8のBOMをスキップするメソッド
+	 * @param is: 読み取りファイルストリーム
+	 * @param charSet:エンコード
+	 * @return BOMが存在すればBOMをスキップしたストリーム
+	 * なければ何も処理をしていないストリーム
+	 * 
 	 */
 	public static InputStream skipUTF8BOM(InputStream is, String charSet)
 			throws Exception {
@@ -115,8 +120,7 @@ public class Kadai {
 	/**
 	 * 配列の足し算を行うメソッド
 	 * 
-	 * @param numBox
-	 *            : 各ファイルの文字列を数値に変換した配列
+	 * @param numBox　： 和を求める配列
 	 * @return sum : 合計値
 	 */
 	public static long addition(int[] numBox) {
@@ -133,9 +137,8 @@ public class Kadai {
 	/**
 	 * 読みこんだCSVファイルを数値に変換するメソッド
 	 * 
-	 * @param str
-	 *            　：　ファイルの内容
-	 * @return numBox : 数値に変換した配列を返す
+	 * @param str : 数値に変換する文字列
+	 * @return 数値に変換した配列を返す
 	 * @throws KadaiException
 	 */
 	public static int[] changeNumber(String str) throws KadaiException {
