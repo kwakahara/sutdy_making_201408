@@ -127,17 +127,16 @@ public class Kadai {
 	/**
 	 * 読みこんだCSVファイルを数値に変換するメソッド
 	 * 
-	 * @param aNumArray
-	 *            　：　ファイルの内容
+	 * @param aStr ：　ファイルの内容
 	 * @return numBox : 数値に変換した配列を返す
 	 * @throws KadaiException
 	 */
-	public static int[] changeNumber(String aNumArray) throws KadaiException {
+	public static int[] changeNumber(String aStr) throws KadaiException {
 
 		// カンマで区切って配列に格納
-		String[] alphabetArray = aNumArray.split(",", -1);
+		String[] alphabetArray = aStr.split(",", -1);
 		// カンマで区切られた各ブロックのスコアを配列の要素に格納
-		int[] numBox = new int[alphabetArray.length];
+		int[] numArray = new int[alphabetArray.length];
 
 		// 文字を数値に直してスコア計算
 		for (int i = 0; i < alphabetArray.length; i++) {
@@ -145,13 +144,13 @@ public class Kadai {
 
 				char tempChar = alphabetArray[i].charAt(j);
 				if (tempChar <= 'Z' && tempChar >= 'A') {
-					numBox[i] += tempChar - 'A' + 1;
+					numArray[i] += tempChar - 'A' + 1;
 				} else {
 					throw new KadaiException(ErrorCode.INVALID_STRING);
 				}
 			}
 		}
-		return numBox;
+		return numArray;
 	}
 
 }
