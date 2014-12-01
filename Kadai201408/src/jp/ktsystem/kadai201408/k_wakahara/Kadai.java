@@ -14,7 +14,7 @@ import jp.ktsystem.kadai201408.common.ErrorCode;
 /**
  * 特定の書式のテキストファイルを読み込み、ルールに沿った数値を返すクラス
  * 
- * @author wakahara
+ * @author k_wakahara
  */
 public class Kadai {
 
@@ -33,7 +33,7 @@ public class Kadai {
 
 		int[] numlist = changeNumber(str);
 
-		return addition(numlist);
+		return additionNumber(numlist);
 
 	}
 
@@ -113,12 +113,12 @@ public class Kadai {
 	 *            : 各ファイルの文字列を数値に変換した配列
 	 * @return sum : 合計値
 	 */
-	public static long addition(int[] aNumBox) {
+	public static long additionNumber(int[] aNumArray) {
 
 		long sum = 0;
 
-		for (int i = 1; i <= aNumBox.length; i++) {
-			sum += aNumBox[i - 1] * i;
+		for (int i = 1; i <= aNumArray.length; i++) {
+			sum += aNumArray[i - 1] * i;
 		}
 
 		return sum;
