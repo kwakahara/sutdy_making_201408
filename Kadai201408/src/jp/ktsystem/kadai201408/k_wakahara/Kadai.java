@@ -48,7 +48,8 @@ public class Kadai {
 
 		
 		try (FileInputStream input = new FileInputStream(aFileName);
-				BufferedReader fileLine = openTextFileR(input, "UTF-8");) {
+				BufferedReader fileLine = 
+						new BufferedReader(new InputStreamReader(skipUTF8BOM(input,"UTF-8"), "UTF-8"));) {
 
 			String line = fileLine.readLine();
 			if (line == null) {
@@ -64,21 +65,6 @@ public class Kadai {
 		} catch (Exception e) {
 			throw new KadaiException(ErrorCode.OTHER_ERROR);
 		}
-	}
-
-	/**
-	 * ファイル読み込みのストリーム生成
-	 * 
-	 * @param aFileInputStr
-	 * @param aCharSet
-	 * @return
-	 * @throws Exception
-	 */
-	public static BufferedReader openTextFileR(FileInputStream aFileInputStr,
-			String charSet) throws Exception {
-
-		return new BufferedReader(new InputStreamReader(skipUTF8BOM(aFileInputStr,
-				charSet), charSet));
 	}
 
 	/**
