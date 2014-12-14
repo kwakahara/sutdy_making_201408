@@ -18,8 +18,9 @@ import org.junit.runners.JUnit4;
 public class KadaiTest201408_Lv1 {
 
 	// ファイルパス(環境に合わせて定義してください)
-	private static final String FILE_DIRECTORY = "..\\Kadai201408\\testfiles\\";
+	private static final String FILE_DIRECTORY = "KadaiTest\\";
 
+	
 	@Test
 	public void testCase001() {
 		assertEquals("testCase001.txt", 0);
